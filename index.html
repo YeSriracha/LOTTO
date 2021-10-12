@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Lotto </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <style type="text/css">
+         body{
+            background-image: url(back.jpg);
+            background-repeat: no-repeat;
+            height: 100vh;
+            background-size: cover;
+        }
+
+        #start{
+            position: absolute;
+            left: 45%;
+            padding-top: 560px;
+            cursor: pointer;
+        }
+        #lotto{
+            position: absolute;
+            left: 40%;
+            padding-top: 350px;
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Cinzel', serif;
+        }
+    </style>
+</head>
+
+    <div id="lotto"></div>
+    <div id = "start">
+        <div>
+            <img id="startBut"src="start.png">
+            <audio id="coinSnd" src="coin.wav"></audio>
+        </div>
+    </div>
+
+<body>
+    <script type="text/javascript">
+        startBut.onclick = function(){
+            coinSnd.play();
+            var lotto = [0, 0, 0, 0, 0, 0];
+            for (var i = 0; i < lotto.length; i++){
+                while(true){
+                    var n = Math.floor((Math.random()
+                        * (46 - 1) +1));
+                    if (!lotto.includes(n)){
+                        lotto[i] = n;
+                        break
+                    }
+                }
+            }
+            document.getElementById('lotto').innerHTML = lotto;
+                lotto.join(', ');
+        }
+    </script>
+    
+</body>
+</html>
